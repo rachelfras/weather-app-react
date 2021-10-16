@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import Form from "./Form.js";
+import Temperature from "./Temperature";
+import IconDisplay from "./IconDisplay";
+import PlaceTime from "./PlaceTime";
+import WeatherExtras from "./WeatherExtras";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <div className="widget">
+      <header>
+        <Form />
       </header>
+      <section className="current-weather">
+          <div className="row">
+            <div className="col-6">
+              <div className="temp-box">
+                <div className="row">
+                  <div className="col-6">
+                    <Temperature />
+                  </div>
+                  <div className="col-6">
+                    <IconDisplay />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-6">
+              <PlaceTime />
+            </div>
+          </div>
+          <WeatherExtras />
+        </section>
+        <footer className="forecast">
+          <div id="forecast-box" className="container"></div>
+        </footer>
+      </div>
     </div>
   );
 }
