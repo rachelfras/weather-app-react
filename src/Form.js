@@ -5,7 +5,7 @@ export default function Form(){
     return (
         <div className="Form">
             <form>
-                <div>
+                <div className="input-group">
                     <input type="text"
                     className="form-control form-bar enter"
                     placeholder="Enter City"
