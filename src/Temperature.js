@@ -6,12 +6,11 @@ export default function Temperature(props){
     return (
     <div className="Temperature">
       <h1>
-        <span id="big-temp">{Math.round(props.data.main.temp)}</span>°C
+        <span id="big-temp">13</span>°C
       </h1>
       <hr />
       <p>
-        <span id="max">{Math.round(props.data.main.temp_max)}
-        </span>°/<span id="min">{Math.round(props.data.main.temp_min)}</span>°
+        <span id="max">14</span>°/<span id="min">9</span>°
       </p>
     </div>
   );
