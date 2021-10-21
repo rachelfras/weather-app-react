@@ -9,10 +9,19 @@ import Forecast from "./Forecast";
 import Links from "./Links";
 
 function App() {
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState(`Tokyo`);
   const [data, setData] = useState({});
 
- 
+  function handleResponse(response){
+    console.log(response.data);
+    setData(
+      {
+        temperature: response.data.main.temp
+
+      }
+    );
+  }
+
   function handleSubmit(event){
     event.preventDefault();
     let apiKey = `fa1047ba99073894a88e54f4a5673a70`;
@@ -45,7 +54,7 @@ function App() {
             <button
               className="btn btn-outline-secondary current form-bar"
               type="button"
-              onClick={searchGeoLocation}
+              //onClick={searchGeoLocation}
             >
               Current
             </button>
