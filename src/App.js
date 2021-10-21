@@ -10,12 +10,9 @@ import Links from "./Links";
 
 function App() {
   const [city, setCity] = useState(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
 
-  function handleResponse(response){
-    setData(response.data);
-  }
-
+ 
   function handleSubmit(event){
     event.preventDefault();
     let apiKey = `fa1047ba99073894a88e54f4a5673a70`;
@@ -26,26 +23,6 @@ function App() {
 
   function handleValue(event){
     setCity(event.target.value);
-  }
-
-  function displayCity(response){
-    let current = `${response.data.name}, ${response.data.sys.country}`;
-    alert(current);
-  }
-
-  function giveCurrent(position) {
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    let units = "metric";
-    let apiKey = `fa1047ba99073894a88e54f4a5673a70`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}`;
-    
-    axios.get(`${apiUrl}&units=${units}&appid=${apiKey}`).then(displayCity);
-}
-
-  function searchGeoLocation(event){
-    event.preventDefault();
-    navigator.geolocation.getCurrentPosition(giveCurrent);
   }
 
   return (
